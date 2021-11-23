@@ -1,0 +1,71 @@
+\documentclass{article}
+
+\input{latex/preamble/preamble}
+
+\title{sigmaMatrix: Covariance Matrix}
+\author{Ivan Jacob Agaloos Pesigan}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+<<echo=FALSE>>=
+root <- rprojroot::is_rstudio_project
+source(
+  root$find_file(
+    "latex",
+    "R_scripts",
+    "start.R"
+  )
+)
+@
+
+\section*{Definition}
+
+\noindent Let
+$
+X
+$
+and
+$
+Y
+$
+be random variables.
+
+\input{latex/equations/sigmaMatrix-sigmaxy}
+
+\section*{Consistent Estimator of the Covariance Matrix}
+
+\input{latex/equations/sigmaMatrix-sigmaxyhat}
+
+\input{latex/equations/sigmaMatrix-sigmacaphat}
+
+\section*{Unbiased Estimator of the Covariance Matrix}
+
+\input{latex/equations/sigmaMatrix-sigmaxyhat-unbiased}
+
+\input{latex/equations/sigmaMatrix-sigmacaphat-unbiased}
+
+\newpage
+
+\section*{Examples}
+
+\subsection*{Consistent Estimate of the Covariance Matrix}
+
+<<>>=
+covc(iris[, 1:4])
+@
+
+<<>>=
+n <- dim(iris)[1]
+cov(iris[, 1:4]) * (n - 1) / n
+@
+
+\subsection*{Unbiased Estimate of the Covariance Matrix}
+
+<<>>=
+cov(iris[, 1:4])
+@
+
+\end{document}
