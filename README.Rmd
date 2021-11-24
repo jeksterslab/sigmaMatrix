@@ -24,10 +24,7 @@ knitr::opts_chunk$set(
 ## Description
 
 A collection of functions
-related to the covariance matrix
-$
-\boldsymbol{\Sigma}
-$.
+related to the covariance matrix.
 
 ## Installation
 
